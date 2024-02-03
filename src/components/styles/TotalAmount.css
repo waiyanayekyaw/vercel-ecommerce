@@ -1,0 +1,45 @@
+.total-amount{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    margin-top: 50px;
+}
+.total-amount h2{
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.total-amount hr{
+    margin: 10px 0;
+}
+.subtotal{
+    display: flex;
+    justify-content: space-between;
+}
+.shipping-fee{
+    display: flex;
+    justify-content: space-between;
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+}
+.total p{
+    font-weight: bold;
+}
+.check-btn{
+    width: 100px;
+    height: 40px;
+    margin-top: 30px;
+    color: white;
+    background-color: #ff4141;
+    border: none;
+    justify-self: end;
+    cursor: pointer;
+}
+
+@media screen and (max-width:600px) {
+    .total-amount{
+        padding: 0 40px;
+        margin-top: 30px;
+    }
+}
