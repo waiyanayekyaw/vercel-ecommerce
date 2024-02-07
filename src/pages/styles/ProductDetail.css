@@ -78,6 +78,9 @@
     outline: none;
     cursor: pointer;
 }
+.product-detail-right button:active{
+    transform: translateY(4px)
+}
 
 @media screen and (max-width:600px) {
     .product-detail{

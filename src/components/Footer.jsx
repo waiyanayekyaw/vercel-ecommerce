@@ -12,7 +12,7 @@ export const Footer = () => {
     return (
         <>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 md:mx-[100px] lg:grid-cols-4 lg:mx-[200px] mx-10 mt-16">
-                <div>
+                <div className="mt-5">
                     <h4 className="text-xl mb-3">Customer Service</h4>
                     <div className="flex mb-2">
                         <img src={privacy} alt="" />

@@ -41,42 +41,65 @@ export default function Cart() {
                     <h3>Your Cart is Empty</h3>
                 </div>
             ) : (
-                <>
-                    <div className="cart-format">
-                        <p>Products</p>
-                        <p>Title</p>
-                        <p>Price</p>
-                        <p>Quantity</p>
-                        <p>Total</p>
-                        <p>Remove</p>
-                    </div>
-                    <hr />
-                    {state.cartItems.map((item) => (
-                        <ul key={item.id}>
-                            <div className="cart-items">
-                                <img src={item.image} className="cart-items-img" alt="" />
-                                <p>{item.name}</p>
-                                <p className="cart-items-price">${item.new_price}</p>
+                <div className="overflow-x-auto">
+                    <table className="w-full bg-gray-100 text-left text-sm text-gray-500">
+                        <thead className="bg-gray-300">
+                            <tr>
+                                <th className="px-6 py-4 font-medium text-gray-900">Products</th>
+                                <th className="px-6 py-4 font-medium text-gray-900">Title</th>
+                                <th className="px-6 py-4 font-medium text-gray-900">Price</th>
+                                <th className="px-6 py-4 font-medium text-gray-900">Quantity</th>
+                                <th className="px-6 py-4 font-medium text-gray-900">Total</th>
+                                <th className="px-6 py-4 font-medium text-gray-900">Remove</th>
+                            </tr>
+                        </thead>
 
-                                <div className="cart-items-quantity">
-                                    <img onClick={() => subtractQty(item)} src={minus} alt="" />
-                                    <div>{item.qty}</div>
-                                    <img onClick={() => addQty(item)} src={plus} alt="" />
-                                </div>
-
-                                <p className="cart-items-total">${item.new_price * item.qty}</p>
-                                <img
-                                    src={remove}
-                                    onClick={() => removeFromCart(item)}
-                                    className="cart-items-remove-icon"
-                                    alt=""
-                                />
-                            </div>
-                            <hr />
-                        </ul>
-                    ))}
+                        {state.cartItems.map((item) => (
+                            <>
+                                <tbody className="border border-b-2">
+                                    <tr key={item.id}>
+                                        <td className="px-6 py-4">
+                                            <img
+                                                src={item.image}
+                                                className="md:h-[70px] sm:h-[50px]"
+                                                alt=""
+                                            />
+                                        </td>
+                                        <td className="px-6 py-4">{item.name}</td>
+                                        <td className="px-6 py-4">${item.new_price}</td>
+                                        <td className="px-5 py-4">
+                                            <div className="flex justify-center items-center gap-3">
+                                                <img
+                                                    onClick={() => subtractQty(item)}
+                                                    src={minus}
+                                                    className="w-5 h-5 bg-red-500 rounded-full cursor-pointer"
+                                                    alt=""
+                                                />
+                                                <div className="text-lg">{item.qty}</div>
+                                                <img
+                                                    onClick={() => addQty(item)}
+                                                    src={plus}
+                                                    className="w-5 h-5 bg-red-500 rounded-full cursor-pointer"
+                                                    alt=""
+                                                />
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4">${item.new_price * item.qty}</td>
+                                        <td className="px-6 py-4">
+                                            <img
+                                                src={remove}
+                                                onClick={() => removeFromCart(item)}
+                                                className="cursor-pointer"
+                                                alt=""
+                                            />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </>
+                        ))}
+                    </table>
                     <TotalAmount totalAmount={totalAmount} />
-                </>
+                </div>
             )}
         </div>
     );
